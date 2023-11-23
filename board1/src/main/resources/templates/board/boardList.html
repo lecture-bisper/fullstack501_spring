@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<!-- xmlns:th="http://www.thymeleaf.org" : thymeleaf 템플릿 엔진을 현재 html 문서에서 사용하기 위해서 알려주는 역할 -->
+<!-- jsp는 현재 스프링 프레임워크의 템플릿 엔진에서 제외됨 -->
+<!-- 현재 thymeleaf 템플릿 엔진이 스프링 프레임워크의 기본 템플릿 엔진 -->
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Spring으로 만든 게시판</title>
+
+  <link rel="stylesheet" href="/css/bootstrap.css">
+  <script src="/js/bootstrap.bundle.js"></script>
+</head>
+<body>
+<header>
+  <nav class="navbar navbar-expand-sm navbar-dark bg-dark fixed-top">
+    <div class="container-fluid">
+      <a href="#" class="navbar-brand">Logo</a>
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item">
+          <a href="#" class="nav-link">메뉴 1</a>
+        </li>
+        <li class="nav-item">
+          <a href="#" class="nav-link">메뉴 2</a>
+        </li>
+        <li class="nav-item">
+          <a href="#" class="nav-link">메뉴 3</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</header>
+
+<main class="container">
+  <div style="margin-top: 75px">
+    <div class="p-4 text-center border rounded-4 bg-secondary bg-opacity-10">
+      <h1 class="display-4">게시판 목록 페이지</h1>
+      <h2 class="mt-3"><small>Spring MVC로 만든 게시판</small></h2>
+    </div>
+  </div>
+  <div class="row mt-4">
+    <div class="col-sm">
+      <table class="table table-hover table-striped">
+        <colgroup>
+          <col style="width: 10%">
+          <col style="width: 60%">
+          <col style="width: 20%">
+          <col style="width: 10%">
+        </colgroup>
+        <thead>
+        <tr>
+          <th>글번호</th>
+          <th>글제목</th>
+          <th>등록일</th>
+          <th>조회수</th>
+        </tr>
+        </thead>
+        <tbody>
+<!--        th:if - thymeleaf에서 제공하는 단순 if문 -->
+<!--        th:each - thymeleaf에서 제공하는 반복문, java의 향상된 for문과 동일함 -->
+<!--        #lists : thymeleaf에서 제공하는 내장 객체, java의 ArrayList를 뜻함 -->
+        <tr th:if="${#lists.size(boardList)} > 0" th:each="item : ${boardList}">
+<!--          th:text - thymeleaf에서 제공하는 문자열 출력 -->
+          <td th:text="${item.boardIdx}"></td>
+          <td th:text="${item.title}"></td>
+          <td th:text="${item.createDate}"></td>
+          <td th:text="${item.hitCnt}"></td>
+        </tr>
+<!--        th:unless - thymeleaf에서 제공하는 단순 if문 중 하나 -->
+<!--        th:if 는 결과값이 true일때 출력, th:unless는 결과값이 false일때 출력 -->
+        <tr th:unless="${#lists.size(boardList)} > 0">
+          <td colspan="4">조회된 결과가 없습니다.</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</main>
+
+<footer class="border-top mt-5 p-sm-5">
+  <div class="text-center">
+    <p class="lead text-muted">made by fullstack501</p>
+  </div>
+</footer>
+</body>
+</html>
