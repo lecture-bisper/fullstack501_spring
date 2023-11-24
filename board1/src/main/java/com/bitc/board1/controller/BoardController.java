@@ -1,11 +1,13 @@
 package com.bitc.board1.controller;
 
 import com.bitc.board1.dto.BoardDto;
+import com.bitc.board1.mapper.BoardMapper;
 import com.bitc.board1.service.BoardService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
@@ -48,6 +50,54 @@ public class BoardController {
 
 //    클라이언트에서 확인할 View 템플릿을 출력
     return mv;
+  }
+
+//  글쓰기 사용자 입력 뷰 페이지
+  @RequestMapping("/board/boardWrite.do")
+  public String boardWrite() throws Exception {
+    return "board/boardWrite";
+  }
+
+//  사용자가 입력한 데이터로 글쓰기 처리
+//  매개변수를 BoardDto 클래스 타입으로 지정했기 때문에 html의 input 태그 중 name 속성값을 BoardDto 클래스의 필드명과 동일하게 사용해야 함
+  @RequestMapping("/board/insertBoard.do")
+  public String insertBoard(BoardDto board) throws Exception {
+//    서비스를 이용하여 데이터 베이스에 데이터 입력
+    boardService.insertBoard(board);
+
+//    지정한 주소로 리다이렉트
+    return "redirect:/board/boardList.do";
+  }
+
+//  @RequestParam : 클라이언트에서 서버로 전달하는 데이터를 받아오기 위한 어노테이션
+//  jsp의 request.getParameter() 메소드와 같은 역할
+  @RequestMapping("/board/boardDetail.do")
+  public ModelAndView boardDetail(@RequestParam int boardIdx) throws Exception {
+    ModelAndView mv = new ModelAndView("board/boardDetail");
+
+    BoardDto board = boardService.selectBoardDetail(boardIdx);
+    mv.addObject("board", board);
+
+    return mv;
+  }
+
+//  게시글 수정하기
+  @RequestMapping("/board/updateBoard.do")
+  public String updateBoard(BoardDto board) throws Exception {
+//    Service를 사용하여 사용자가 입력한 데이터로 변경
+    boardService.updateBoard(board);
+
+    return "redirect:/board/boardList.do";
+//    return "redirect:/board/boardDetail.do?boardIdx=" + board.getBoardIdx();
+  }
+
+//  게시글 삭제하기
+  @RequestMapping("/board/deleteBoard.do")
+  public String deleteBoard(@RequestParam("boardIdx") int boardIdx) throws Exception {
+//    Service를 사용하여 데이터 베이스의 내용 삭제
+    boardService.deleteBoard(boardIdx);
+
+    return "redirect:/board/boardList.do";
   }
 }
 
