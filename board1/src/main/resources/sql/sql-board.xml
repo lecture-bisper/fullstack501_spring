@@ -31,6 +31,33 @@
       deleted_yn = 'N'
     ORDER BY board_idx DESC
   </select>
+
+<!--  mybatis의 xml 사용 시 xml은 자바처럼 오버로딩을 지원하지 않기 때문에 id 값을 모두 다르게 입력해야 함 -->
+<!--  parameterType타입으로 Dto 타입의 객체를 가져와서 사용할 경우 #{필드명} 형태로 사용 -->
+  <insert id="insertBoard" parameterType="com.bitc.board1.dto.BoardDto">
+    INSERT INTO t_board (title, contents, create_date, create_id)
+    VALUES (#{title}, #{contents}, NOW(), #{createId})
+  </insert>
+
+  <select id="selectBoardDetail" parameterType="int" resultType="com.bitc.board1.dto.BoardDto">
+    SELECT board_idx, title, contents, hit_cnt, create_date, create_id, update_date, update_id
+    FROM t_board
+    WHERE board_idx = #{boardIdx}
+  </select>
+
+  <update id="updateHitCount" parameterType="int">
+    UPDATE t_board SET hit_cnt = hit_cnt + 1
+    WHERE board_idx = #{boardIdx}
+  </update>
+
+  <update id="updateBoard" parameterType="com.bitc.board1.dto.BoardDto">
+    UPDATE t_board SET title = #{title}, contents = #{contents}, update_date = NOW(), update_id = #{updateId}
+    WHERE board_idx = #{boardIdx}
+  </update>
+
+  <update id="deleteBoard" parameterType="int">
+    UPDATE t_board SET deleted_yn = 'Y' WHERE board_idx = #{boardIdx}
+  </update>
 </mapper>
 
 
