@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Title</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+          crossorigin="anonymous"></script>
+
+</head>
+<body>
+<!--fragment는 jsp의 include와 달리 지정한 태그를 가져다가 포함시킴-->
+<!--fragment는 여러개의 영역을 만들어놓고 필요에 따라 원하는 영역을 포함 시킬 수 있음-->
+<header class="container-fluid p-4" th:fragment="headerBasic">
+  <h1 class="text-center">Header 영역</h1>
+</header>
+
+<header class="container-fluid p-4" th:fragment="headerNavbar">
+  <nav class="navbar navbar-expend-sm navbar-dark bg-dark">
+    <ul class="navbar-nav">
+      <li class="nav-item"><a href="#" class="nav-link">home</a></li>
+      <li class="nav-item"><a href="#" class="nav-link">link1</a></li>
+      <li class="nav-item"><a href="#" class="nav-link">link2</a></li>
+    </ul>
+  </nav>
+</header>
+
+<header class="container-fluid p-4" th:fragment="headerParam(pa1, param2)">
+  <div class="container bg-secondary bg-opacity-25 py-4">
+    <h1 class="text-center" th:text="${pa1}">Header</h1>
+    <h4 class="text-center text-muted" th:text="${param2}"></h4>
+  </div>
+</header>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
