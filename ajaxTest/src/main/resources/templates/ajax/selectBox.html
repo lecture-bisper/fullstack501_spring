@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Title</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+          crossorigin="anonymous"></script>
+
+  <script>
+    $(document).ready(function () {
+      // 첫번째 select box의 선택이 변경되면 이벤트 발생
+      $("#sel1").on("change", function () {
+        // id값이 'sel1'인 태그의 자손 태그 중 option 태그를 선택하고 그 중에서 selected 속성을 가지고 있는 태그를 선택하고 value 속성값 가져오기
+        const selectValue = $("#sel1 option:selected").val();
+        // 서버로 전송할 데이터 생성, 자바스크립트의 object 타입으로 생성
+        const datas = {areaName: selectValue};
+
+        // ajax 통신, 비동기 통신
+        $.ajax({
+          url: "/ajax/selectBox",
+          type: "POST",
+          data: datas,
+          success: function (data) {
+            if (data.length > 0) {
+              // 두번째 select box 선택, 가져온 select box 태그를 자바스크립트 변수에 저장
+              const sel2 = $("#sel2");
+              // empty() : 선택한 태그의 자식 태그를 모두 삭제
+              sel2.empty();
+
+              // 자식 태그 모양 설정
+              let opt = "<option value=''>선택하세요.</option>";
+
+              // 서버에서 가져온 데이터로 자식 태그 모양 설정
+              for (let i = 0; i < data.length; i++) {
+                opt += "<option value='" + data[i].areaName + "'>" + data[i].areaName + "</option>";
+              }
+              // 지정한 태그에 만들어진 자식 태그 추가
+              sel2.append(opt);
+            }
+          },
+          error: function () {
+            alert("통신 실패");
+          }
+        });
+      });
+    });
+  </script>
+</head>
+<body>
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-sm">
+      <select class="form-control me-3" id="sel1">
+        <option value="" selected>선택하세요.</option>
+        <option value="서울">서울</option>
+        <option value="대전">대전</option>
+        <option value="대구">대구</option>
+        <option value="부산">부산</option>
+      </select>
+    </div>
+    <div class="col-sm">
+      <select class="form-control" id="sel2">
+        <option value="" selected>선택하세요</option>
+      </select>
+    </div>
+  </div>
+</div>
+
+<!-- 문제 1) ajaxCalView 파일을 참고하여 계산기 프로그램을 작성하세요 -->
+<!-- * 입력 데이터 3개 (숫자 2개, 연산자 1개) -->
+<!-- * 연산자는 +, -, *, / -->
+<!-- * 입력된 숫자와 연산자를 선택하고 "계산" 버튼 클릭 시 화면 아래에 연산 결과를 출력 -->
+<!-- * 파일명 : quiz1.html -->
+
+<!-- 문제 2) seletBox 파일을 수정하여 구 정보를 선택 시 동 정보가 출력되도록 select 버튼을 1개 더 추가하고 주소 출력 버튼을 클릭 시 전체 주소가 화면에 출력되는 프로그램을 작성하세요 -->
+<!-- * 세번째 select box id는 'sel3' -->
+<!-- * 주소 출력 버튼은 type=button, id = btn-addr -->
+<!-- * 내용 처리를 위한 함수를 따로 생성하여 사용해도 상관없음 -->
+<!-- * 파일명 : quiz2.html -->
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
