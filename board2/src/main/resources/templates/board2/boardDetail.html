@@ -12,6 +12,15 @@
           integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
           crossorigin="anonymous"></script>
 
+<!--  thymeleaf에서 세션정보를 가져와서 자바스크립트가 검증하고 화면을 로딩할지 이전페이지로 이동할지 결정 -->
+<!--  <script th:inline="javascript">-->
+<!--    const userId = [[${session.userId}]];-->
+
+<!--    if (userId == null || userId == "") {-->
+<!--      alert("로그인 후 이용하세요.");-->
+<!--      history.back();-->
+<!--    }-->
+<!--  </script>-->
 </head>
 <body>
 

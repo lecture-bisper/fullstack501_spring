@@ -22,8 +22,26 @@
         <li class="nav-item"><a href="#" class="nav-link">Menu1</a></li>
         <li class="nav-item"><a href="#" class="nav-link">Menu2</a></li>
       </ul>
+      <div class="ms-auto" th:if="${session.userId} == null">
+        <a th:href="@{/board2/login/login.do}" class="btn btn-outline-success">로그인</a>
+      </div>
+      <div class="ms-auto" th:unless="${session.userId} == null">
+        <span class="navbar-text me-3" th:text="|${session.userName} 님 반갑습니다.|"></span>
+<!--        <a th:href="@{/board2/login/logout.do}" class="btn btn-outline-warning">로그아웃</a>-->
+        <button type="button" class="btn btn-outline-warning" id="btn-logout">로그아웃</button>
+      </div>
     </div>
   </nav>
+
+  <script>
+    $("#btn-logout").on("click", function () {
+      const confirmed = confirm("로그아웃 하시겠습니까?");
+
+      if (confirmed) {
+        location.href = "/board2/login/logout.do";
+      }
+    });
+  </script>
 </header>
 </body>
 </html>

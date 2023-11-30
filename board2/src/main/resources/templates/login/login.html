@@ -12,10 +12,27 @@
           integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
           crossorigin="anonymous"></script>
 
+<!--  javascript에서 thymeleaf 데이터 사용하기 -->
+<!--  자바스크립트는 html 및 thymeleaf가 로딩되기 전에 실행되거나 모두 로딩된 후 동작함 -->
+<!--  자바스크립트와 thymeleaf를 동시에 사용할 수 없음 -->
+<!--  thymeleaf의 th:inline="javascript" 를 사용 시 자바스크립트에서 thymeleaf의 객체를 사용할 수 있음-->
+<!--  자바스크립트의 변수에 thymeleaf의 객체 데이터를 저장할 경우 const value = [ [ ${...} ] ]; 형태로 사용-->
+
+  <script th:inline="javascript">
+    const msg = [[${param.errorMsg}]];
+
+    if (!(msg == null || msg == "" || msg == undefined)) {
+      alert(msg);
+    }
+  </script>
 </head>
 <body>
 
 <div th:replace="~{/layout/header :: headerNavbar}"></div>
+
+<!-- ${param} : thymeleaf에서 제공하는 파라미터 내장 객체 -->
+<!--사용 방법은 ${param.파라미터명} -->
+<p th:text="${param.msg}"></p>
 
 <main class="container mt-5">
   <div class="row">
