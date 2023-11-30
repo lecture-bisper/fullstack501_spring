@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.bitc.board3.mapper.BoardMapper">
+  <select id="selectBoardList" resultType="com.bitc.board3.dto.BoardDTO">
+    SELECT
+      board_idx, title, create_date, create_id, hit_cnt
+    FROM
+      t_board
+    ORDER BY
+      board_idx DESC
+  </select>
+
+  <select id="selectBoardDetail" parameterType="int" resultType="com.bitc.board3.dto.BoardDTO">
+    SELECT
+      board_idx, title, contents, create_date, create_id, update_date, update_id, hit_cnt
+    FROM
+      t_board
+    WHERE
+      board_idx = #{boardIdx}
+  </select>
+
+  <insert id="insertBoard" parameterType="com.bitc.board3.dto.BoardDTO">
+    INSERT INTO
+      t_board (title, contents, create_date, create_id)
+    VALUES
+      (#{title}, #{contents}, NOW(), #{createId})
+  </insert>
+
+  <update id="updateBoard" parameterType="com.bitc.board3.dto.BoardDTO">
+    UPDATE
+      t_board
+    SET
+      title = #{title},
+      contents = #{contents},
+      update_date = NOW(),
+      update_id = #{updateId}
+    WHERE
+      board_idx = #{boardIdx}
+  </update>
+
+  <update id="deleteBoard" parameterType="int">
+    UPDATE
+      t_board
+    SET
+      deleted_yn = 'Y'
+    WHERE
+      board_idx = #{boardIdx}
+  </update>
+</mapper>
+
+
+
+
+
+
+
+
+
+
