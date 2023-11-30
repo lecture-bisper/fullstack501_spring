@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Title</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+          crossorigin="anonymous"></script>
+
+  <script>
+    $(document).ready(function () {
+      // 시 정보 선택 selectbox
+      $("#sel1").on("change", function () {
+        const val1 = $("#sel1 option:selected").val();
+
+        $.ajax({
+          url: "/ajax/quiz2Result",
+          type: "POST",
+          data: {areaName: val1},
+          success: function (data) {
+          //   통신 성공 시 구 정보를 선택하는 selectbox 에 내용 설정
+            if (data.length > 0) {
+              // 동 정보를 선택하는 select 를 선택하고 기존 내용 삭제
+              const selBox3 = $("#sel3");
+              selBox3.empty();
+
+              // 구 정보를 선택하는 select 를 선택하고 기존 내용 삭제
+              const selBox2 = $("#sel2");
+              selBox2.empty();
+
+              // 첫번째 option 태그 모양 생성
+              let opt = "<option value='' selected>선택하세요</option>"
+              // 동 정보를 선택하는 select 에 option 추가
+              selBox3.append(opt);
+
+              // 구 정보를 선택하는 select 에 option 추가
+              for (let i = 0; i < data.length; i++) {
+                opt += "<option value='" + data[i].areaName + "'>" + data[i].areaName + "</option>";
+              }
+
+              selBox2.append(opt);
+            }
+          },
+          error: function () {
+            alert("통신 중 오류가 발생했습니다.");
+          }
+        });
+      });
+
+      // 구 정보를 선택하는 select 태그
+      $("#sel2").on("change", function () {
+        const val2 = $("#sel2 option:selected").val();
+
+        $.ajax({
+          url: "/ajax/quiz2Result2",
+          type: "POST",
+          data: {areaName: val2},
+          success: function (data) {
+            if (data.length > 0) {
+              const selBox3 = $("#sel3");
+              selBox3.empty();
+
+              let opt = "<option value='' selected>선택하세요</option>";
+
+              for (let i = 0; i < data.length; i++) {
+                opt += "<option value='" + data[i].areaName + "'>" + data[i].areaName + "</option>";
+              }
+
+              selBox3.append(opt);
+            }
+          },
+          error: function () {
+            alert("통신 중 오류가 발생했습니다.");
+          }
+        });
+      });
+
+      // 주소 출력 버튼 클릭 시
+      $("#btn-addr").on("click", function () {
+        const addr1 = $("#sel1 option:selected").val();
+        const addr2 = $("#sel2 option:selected").val();
+        const addr3 = $("#sel3 option:selected").val();
+
+        if (addr1 == "" || addr2 == "" || addr3 == "") {
+          alert("주소 선택이 완료되지 않았습니다.");
+        }
+        else {
+          alert(addr1 + "시 " + addr2 + " " + addr3);
+        }
+      });
+    });
+  </script>
+</head>
+<body>
+<div class="container mt-5">
+  <h3>quiz2 ajax를 이용하여 select box 내용 변경</h3>
+  <div class="row">
+    <div class="col-sm">
+      <select class="form-control" id="sel1">
+        <option value="" selected>선택하세요</option>
+        <option value="서울">서울</option>
+        <option value="대전">대전</option>
+        <option value="대구">대구</option>
+        <option value="부산">부산</option>
+      </select>
+    </div>
+    <div class="col-sm">
+      <select class="form-control" id="sel2">
+        <option value="" selected>선택하세요</option>
+      </select>
+    </div>
+    <div class="col-sm">
+      <select class="form-control" id="sel3">
+        <option value="" selected>선택하세요</option>
+      </select>
+    </div>
+    <div class="col-sm-2">
+      <button type="button" class="btn btn-primary" id="btn-addr">선택 완료</button>
+    </div>
+  </div>
+</div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+

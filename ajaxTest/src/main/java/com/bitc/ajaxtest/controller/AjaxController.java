@@ -83,6 +83,62 @@ public class AjaxController {
 
     return areaList;
   }
+
+  @RequestMapping("/quiz1")
+  public String quiz1() throws Exception {
+    return "ajax/quiz1";
+  }
+
+  @ResponseBody
+  @RequestMapping(value = "/quiz1Result", method = RequestMethod.POST)
+  public Object quiz1Result(@RequestParam("num1") int num1, @RequestParam("num2") int num2, @RequestParam("op") String op) throws Exception {
+    Map<String, String> result = new HashMap<>();
+
+    switch (op) {
+      case "+":
+        result.put("result", "success");
+        result.put("value", String.valueOf(num1 + num2));
+        break;
+
+      case "-":
+        result.put("result", "success");
+        result.put("value", String.valueOf(num1 - num2));
+        break;
+
+      case "*":
+        result.put("result", "success");
+        result.put("value", String.valueOf(num1 * num2));
+        break;
+
+      case "/":
+        result.put("result", "success");
+        result.put("value", String.valueOf(num1 / num2));
+        break;
+    }
+
+    return result;
+  }
+
+  @RequestMapping("/quiz2")
+  public String quiz2() throws Exception {
+    return "ajax/quiz2";
+  }
+
+  @ResponseBody
+  @RequestMapping(value = "/quiz2Result", method = RequestMethod.POST)
+  public Object quiz2Result(@RequestParam("areaName") String areaName) throws Exception {
+    List<AreaDTO> areaList = areaService.getDistrictList(areaName);
+
+    return areaList;
+  }
+
+  @ResponseBody
+  @RequestMapping(value = "/quiz2Result2", method = RequestMethod.POST)
+  public Object quiz2Result2(@RequestParam("areaName") String areaName) throws Exception {
+    List<AreaDTO> areaList = areaService.getTownList(areaName);
+
+    return areaList;
+  }
 }
 
 
