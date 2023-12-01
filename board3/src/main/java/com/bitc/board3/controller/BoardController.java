@@ -92,7 +92,7 @@ public class BoardController {
   public String boardDelete(@PathVariable("boardIdx") int boardIdx) throws Exception {
     boardService.deleteBoard(boardIdx);
 
-    return "rediect:/board3/board";
+    return "redirect:/board3/board";
   }
 }
 

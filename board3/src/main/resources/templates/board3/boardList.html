@@ -42,7 +42,7 @@
             <tr th:if="${#lists.size(boardList)} > 0" th:each="item : ${boardList}">
               <td th:text="${item.boardIdx}">글번호</td>
               <td class="text-start">
-                <a href="/board3/board/" th:href="@{/board3/board/(boardIdx=${item.boardIdx})}" th:text="${item.title}" class="text-decoration-none text-start">글제목</a>
+                <a href="/board3/board/" th:href="@{|/board3/board/${item.boardIdx}|}" th:text="${item.title}" class="text-decoration-none text-start">글제목</a>
               </td>
               <td th:text="${item.createId}">작성자</td>
               <td th:text="${item.createDate}">등록시간</td>

@@ -9,6 +9,8 @@
       board_idx, title, create_date, create_id, hit_cnt
     FROM
       t_board
+    WHERE
+      deleted_yn = 'N'
     ORDER BY
       board_idx DESC
   </select>
