@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<response>
+<header>
+<resultCode>00</resultCode>
+<resultMsg>NORMAL SERVICE.</resultMsg>
+</header>
+<body>
+<items>
+<item>
+<dutyAddr>대전광역시 동구 계족로 362, 성남약국 1층 (성남동)</dutyAddr>
+<dutyName>성남약국</dutyName>
+<dutyTel1>042-672-2957</dutyTel1>
+<dutyTime1c>1900</dutyTime1c>
+<dutyTime1s>0900</dutyTime1s>
+<dutyTime2c>1900</dutyTime2c>
+<dutyTime2s>0900</dutyTime2s>
+<dutyTime3c>1900</dutyTime3c>
+<dutyTime3s>0900</dutyTime3s>
+<dutyTime4c>1900</dutyTime4c>
+<dutyTime4s>0900</dutyTime4s>
+<dutyTime5c>1900</dutyTime5c>
+<dutyTime5s>0900</dutyTime5s>
+<dutyTime6c>1300</dutyTime6c>
+<dutyTime6s>0900</dutyTime6s>
+<hpid>C1601311</hpid>
+<postCdn1>345</postCdn1>
+<postCdn2>90 </postCdn2>
+<rnum>1</rnum>
+<wgs84Lat>36.3444243564852</wgs84Lat>
+<wgs84Lon>127.434066050389</wgs84Lon>
+</item>
+<item>
+<dutyAddr>경기도 화성시 동탄신리천로1길 73, 103호 (산척동)</dutyAddr>
+<dutyName>호반약국</dutyName>
+<dutyTel1>031-374-1176</dutyTel1>
+<dutyTime1c>1800</dutyTime1c>
+<dutyTime1s>0900</dutyTime1s>
+<dutyTime2c>1800</dutyTime2c>
+<dutyTime2s>0900</dutyTime2s>
+<dutyTime3c>1800</dutyTime3c>
+<dutyTime3s>0900</dutyTime3s>
+<dutyTime4c>1800</dutyTime4c>
+<dutyTime4s>0900</dutyTime4s>
+<dutyTime5c>1800</dutyTime5c>
+<dutyTime5s>0900</dutyTime5s>
+<hpid>C2108752</hpid>
+<postCdn1>184</postCdn1>
+<postCdn2>89 </postCdn2>
+<rnum>2</rnum>
+<wgs84Lat>37.179441394088</wgs84Lat>
+<wgs84Lon>127.119338868475</wgs84Lon>
+</item>
+<item>
+<dutyAddr>경기도 안산시 상록구 광덕1로 355, 데코스포텔 101,102호 (이동)</dutyAddr>
+<dutyName>보세온누리약국</dutyName>
+<dutyTel1>031-415-7755</dutyTel1>
+<dutyTime1c>2100</dutyTime1c>
+<dutyTime1s>0900</dutyTime1s>
+<dutyTime2c>2100</dutyTime2c>
+<dutyTime2s>0900</dutyTime2s>
+<dutyTime3c>2100</dutyTime3c>
+<dutyTime3s>0900</dutyTime3s>
+<dutyTime4c>2100</dutyTime4c>
+<dutyTime4s>0900</dutyTime4s>
+<dutyTime5c>2100</dutyTime5c>
+<dutyTime5s>0900</dutyTime5s>
+<dutyTime6c>1800</dutyTime6c>
+<dutyTime6s>0900</dutyTime6s>
+<hpid>C2104025</hpid>
+<postCdn1>154</postCdn1>
+<postCdn2>94 </postCdn2>
+<rnum>3</rnum>
+<wgs84Lat>37.307074008954494</wgs84Lat>
+<wgs84Lon>126.8487464523864</wgs84Lon>
+</item>
+<item>
+<dutyAddr>서울특별시 강남구 선릉로 431, 에스케이허브오피스텔 1층 (역삼동)</dutyAddr>
+<dutyName>타임약국</dutyName>
+<dutyTel1>02-539-0201</dutyTel1>
+<dutyTime1c>2000</dutyTime1c>
+<dutyTime1s>0930</dutyTime1s>
+<dutyTime2c>2000</dutyTime2c>
+<dutyTime2s>0930</dutyTime2s>
+<dutyTime3c>2000</dutyTime3c>
+<dutyTime3s>0930</dutyTime3s>
+<dutyTime4c>2000</dutyTime4c>
+<dutyTime4s>0930</dutyTime4s>
+<dutyTime5c>2000</dutyTime5c>
+<dutyTime5s>0930</dutyTime5s>
+<dutyTime6c>1830</dutyTime6c>
+<dutyTime6s>0930</dutyTime6s>
+<hpid>C1108221</hpid>
+<postCdn1>062</postCdn1>
+<postCdn2>12 </postCdn2>
+<rnum>4</rnum>
+<wgs84Lat>37.503435658512</wgs84Lat>
+<wgs84Lon>127.049106892969</wgs84Lon>
+</item>
+<item>
+<dutyAddr>서울특별시 강남구 삼성로 707, 1층(청담동,청담빌딩)</dutyAddr>
+<dutyMapimg>청담역 8번출구 바로앞</dutyMapimg>
+<dutyName>타조약국</dutyName>
+<dutyTel1>02-3445-0997</dutyTel1>
+<dutyTime1c>1900</dutyTime1c>
+<dutyTime1s>0900</dutyTime1s>
+<dutyTime2c>1900</dutyTime2c>
+<dutyTime2s>0900</dutyTime2s>
+<dutyTime3c>1900</dutyTime3c>
+<dutyTime3s>0900</dutyTime3s>
+<dutyTime4c>1900</dutyTime4c>
+<dutyTime4s>0900</dutyTime4s>
+<dutyTime5c>1900</dutyTime5c>
+<dutyTime5s>0900</dutyTime5s>
+<dutyTime6c>1700</dutyTime6c>
+<dutyTime6s>0900</dutyTime6s>
+<hpid>C1103798</hpid>
+<postCdn1>060</postCdn1>
+<postCdn2>68 </postCdn2>
+<rnum>5</rnum>
+<wgs84Lat>37.5192678106758</wgs84Lat>
+<wgs84Lon>127.049598360258</wgs84Lon>
+</item>
+<item>
+<dutyAddr>서울특별시 강남구 선릉로86길 17 (대치동)</dutyAddr>
+<dutyName>테헤란건강약국</dutyName>
+<dutyTel1>02-556-4166</dutyTel1>
+<dutyTime1c>2200</dutyTime1c>
+<dutyTime1s>0900</dutyTime1s>
+<dutyTime2c>2200</dutyTime2c>
+<dutyTime2s>0900</dutyTime2s>
+<dutyTime3c>2200</dutyTime3c>
+<dutyTime3s>0900</dutyTime3s>
+<dutyTime4c>2200</dutyTime4c>
+<dutyTime4s>0900</dutyTime4s>
+<dutyTime5c>2200</dutyTime5c>
+<dutyTime5s>0900</dutyTime5s>
+<dutyTime6c>2000</dutyTime6c>
+<dutyTime6s>0900</dutyTime6s>
+<dutyTime7c>1930</dutyTime7c>
+<dutyTime7s>1530</dutyTime7s>
+<dutyTime8c>1930</dutyTime8c>
+<dutyTime8s>1530</dutyTime8s>
+<hpid>C1100829</hpid>
+<postCdn1>061</postCdn1>
+<postCdn2>92 </postCdn2>
+<rnum>6</rnum>
+<wgs84Lat>37.5035670052591</wgs84Lat>
+<wgs84Lon>127.051066236605</wgs84Lon>
+</item>
+<item>
+<dutyAddr>서울특별시 강남구 언주로147길 6 (논현동)</dutyAddr>
+<dutyMapimg>1층</dutyMapimg>
+<dutyName>트리스약국</dutyName>
+<dutyTel1>02-541-4545</dutyTel1>
+<dutyTime1c>1930</dutyTime1c>
+<dutyTime1s>0900</dutyTime1s>
+<dutyTime2c>1930</dutyTime2c>
+<dutyTime2s>0900</dutyTime2s>
+<dutyTime3c>1930</dutyTime3c>
+<dutyTime3s>0900</dutyTime3s>
+<dutyTime4c>1930</dutyTime4c>
+<dutyTime4s>0900</dutyTime4s>
+<dutyTime5c>1930</dutyTime5c>
+<dutyTime5s>0900</dutyTime5s>
+<dutyTime6c>1700</dutyTime6c>
+<dutyTime6s>0900</dutyTime6s>
+<hpid>C1103453</hpid>
+<postCdn1>060</postCdn1>
+<postCdn2>48 </postCdn2>
+<rnum>7</rnum>
+<wgs84Lat>37.5200945044206</wgs84Lat>
+<wgs84Lon>127.033687796901</wgs84Lon>
+</item>
+<item>
+<dutyAddr>서울특별시 강남구 도산대로 108 (논현동) 1층 일부</dutyAddr>
+<dutyName>트리플약국</dutyName>
+<dutyTel1>02-517-5256</dutyTel1>
+<dutyTime1c>2130</dutyTime1c>
+<dutyTime1s>1000</dutyTime1s>
+<dutyTime2c>2130</dutyTime2c>
+<dutyTime2s>1000</dutyTime2s>
+<dutyTime3c>2130</dutyTime3c>
+<dutyTime3s>1000</dutyTime3s>
+<dutyTime4c>2130</dutyTime4c>
+<dutyTime4s>1000</dutyTime4s>
+<dutyTime5c>2130</dutyTime5c>
+<dutyTime5s>1000</dutyTime5s>
+<dutyTime6c>1900</dutyTime6c>
+<dutyTime6s>1000</dutyTime6s>
+<hpid>C1107165</hpid>
+<postCdn1>060</postCdn1>
+<postCdn2>38 </postCdn2>
+<rnum>8</rnum>
+<wgs84Lat>37.5161918332017</wgs84Lat>
+<wgs84Lon>127.020655869811</wgs84Lon>
+</item>
+<item>
+<dutyAddr>서울특별시 강남구 광평로 196, 202호 (수서동, 제이스프라자)</dutyAddr>
+<dutyMapimg>수서동성당 맞은편</dutyMapimg>
+<dutyName>튼튼약국</dutyName>
+<dutyTel1>02-451-9111</dutyTel1>
+<dutyTime1c>1830</dutyTime1c>
+<dutyTime1s>0900</dutyTime1s>
+<dutyTime2c>1830</dutyTime2c>
+<dutyTime2s>0900</dutyTime2s>
+<dutyTime3c>1730</dutyTime3c>
+<dutyTime3s>0900</dutyTime3s>
+<dutyTime4c>1830</dutyTime4c>
+<dutyTime4s>0900</dutyTime4s>
+<dutyTime5c>1830</dutyTime5c>
+<dutyTime5s>0900</dutyTime5s>
+<dutyTime6c>1330</dutyTime6c>
+<dutyTime6s>0900</dutyTime6s>
+<hpid>C1107712</hpid>
+<postCdn1>063</postCdn1>
+<postCdn2>62 </postCdn2>
+<rnum>9</rnum>
+<wgs84Lat>37.4840026375</wgs84Lat>
+<wgs84Lon>127.094269484</wgs84Lon>
+</item>
+<item>
+<dutyAddr>서울특별시 강남구 개포로 615, 석탑프라자 305-1호 (개포동)</dutyAddr>
+<dutyMapimg>대모산입구역 4번출구/수서경찰서 인근</dutyMapimg>
+<dutyName>튼튼중앙약국</dutyName>
+<dutyTel1>02-451-0530</dutyTel1>
+<dutyTime1c>1900</dutyTime1c>
+<dutyTime1s>0930</dutyTime1s>
+<dutyTime2c>1900</dutyTime2c>
+<dutyTime2s>0930</dutyTime2s>
+<dutyTime3c>1900</dutyTime3c>
+<dutyTime3s>0930</dutyTime3s>
+<dutyTime4c>1900</dutyTime4c>
+<dutyTime4s>0930</dutyTime4s>
+<dutyTime5c>1900</dutyTime5c>
+<dutyTime5s>0930</dutyTime5s>
+<dutyTime6c>1500</dutyTime6c>
+<dutyTime6s>0930</dutyTime6s>
+<hpid>C1107702</hpid>
+<postCdn1>063</postCdn1>
+<postCdn2>35 </postCdn2>
+<rnum>10</rnum>
+<wgs84Lat>37.4926585332</wgs84Lat>
+<wgs84Lon>127.0755862212</wgs84Lon>
+</item>
+</items>
+<numOfRows>10</numOfRows>
+<pageNo>1</pageNo>
+<totalCount>24479</totalCount>
+</body>
+</response>
