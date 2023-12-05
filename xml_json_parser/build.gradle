@@ -38,6 +38,11 @@ dependencies {
     // https://mvnrepository.com/artifact/jakarta.activation/jakarta.activation-api
     implementation 'jakarta.activation:jakarta.activation-api:2.1.2'
 
+//    json 파싱을 위해서 필요한 종속성 추가
+    // https://mvnrepository.com/artifact/com.google.code.gson/gson
+    implementation 'com.google.code.gson:gson:2.10.1'
+
+
 }
 
 tasks.named('bootBuildImage') {
