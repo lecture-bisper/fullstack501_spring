@@ -1,14 +1,12 @@
 package com.bitc.xml_json_parser.controller;
 
+import com.bitc.xml_json_parser.dto.DailyBoxOfficeListDTO;
 import com.bitc.xml_json_parser.dto.PharmacyFullDataItemDTO;
 import com.bitc.xml_json_parser.service.ParserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
@@ -25,6 +23,12 @@ public class ParserController {
 
   @Value("${fullstack501.pharmacy.service.url}")
   private String pharmacyServiceUrl;
+
+  @Value("${fullstack501.kobis.service.url}")
+  private String kobisServiceUrl;
+
+  @Value("${fullstack501.kobis.service.key}")
+  private String kobisServiceMyKey;
 
   @RequestMapping({"/", ""})
   public String index() throws Exception {
@@ -54,6 +58,23 @@ public class ParserController {
     List<PharmacyFullDataItemDTO> pharmacyList = parserService.getItemListUrl(pharmacyServiceUrl + optKey + serviceMyKey + opt1 + pageNo + opt2 + numOfRows);
 
     return pharmacyList;
+  }
+
+  @GetMapping("/kobis/dailyBoxOffice")
+  public String dailyBoxOfficeView() throws Exception {
+    return "kobis/dailyBoxOffice";
+  }
+
+  @ResponseBody
+  @PostMapping("/kobis/dailyBoxOfficeJson")
+  public Object getDailyBoxOfficeJson(@RequestParam("targetDt") String targetDt) throws Exception {
+    String optKey = "?key=";
+    String opt1 = "&targetDt=";
+    String serviceUrl = kobisServiceUrl + optKey + kobisServiceMyKey + opt1 + targetDt;
+
+    List<DailyBoxOfficeListDTO> dailyBoxOfficeList = parserService.getDailyBoxOfficeJson(serviceUrl);
+
+    return dailyBoxOfficeList;
   }
 }
 
