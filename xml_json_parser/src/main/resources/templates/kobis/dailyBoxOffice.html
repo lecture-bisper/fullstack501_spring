@@ -15,8 +15,10 @@
   <script>
     $(document).ready(function() {
       $("#btn-search-json").on("click", function() {
+        // 조회 날짜 가져오기
         const targetDate = $("#target-date").val();
 
+        // ajax통신으로 접속할 서버 URL 및 데이터 전달
         $.ajax({
           url: "/parser/kobis/dailyBoxOfficeJson",
           type: "POST",
