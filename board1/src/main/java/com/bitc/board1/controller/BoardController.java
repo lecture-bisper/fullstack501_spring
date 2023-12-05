@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
@@ -61,10 +62,10 @@ public class BoardController {
 //  사용자가 입력한 데이터로 글쓰기 처리
 //  매개변수를 BoardDto 클래스 타입으로 지정했기 때문에 html의 input 태그 중 name 속성값을 BoardDto 클래스의 필드명과 동일하게 사용해야 함
   @RequestMapping("/board/insertBoard.do")
-  public String insertBoard(BoardDto board) throws Exception {
+  public String insertBoard(BoardDto board, MultipartHttpServletRequest multipart) throws Exception {
 //    서비스를 이용하여 데이터 베이스에 데이터 입력
-    boardService.insertBoard(board);
-
+//    boardService.insertBoard(board);
+      boardService.insertBoard(board, multipart);
 //    지정한 주소로 리다이렉트
     return "redirect:/board/boardList.do";
   }
