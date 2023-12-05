@@ -1,6 +1,7 @@
 package com.bitc.board1.mapper;
 
 import com.bitc.board1.dto.BoardDto;
+import com.bitc.board1.dto.BoardFileDto;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
@@ -27,6 +28,8 @@ public interface BoardMapper {
   public void updateBoard(BoardDto board) throws Exception;
 
   public void deleteBoard(@Param("boardIdx") int boardIdx) throws Exception;
+
+  public void insertBoardFileList(List<BoardFileDto> fileList) throws Exception;
 }
 
 
