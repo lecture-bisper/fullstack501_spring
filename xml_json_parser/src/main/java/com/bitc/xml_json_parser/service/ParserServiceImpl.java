@@ -1,12 +1,15 @@
 package com.bitc.xml_json_parser.service;
 
 import com.bitc.xml_json_parser.dto.*;
+import com.google.gson.Gson;
 import jakarta.xml.bind.JAXBContext;
 import jakarta.xml.bind.JAXBException;
 import jakarta.xml.bind.Unmarshaller;
 import org.springframework.stereotype.Service;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.List;
@@ -65,6 +68,43 @@ public class ParserServiceImpl implements ParserService {
     finally {
       if (urlConn != null) { urlConn.disconnect(); }
     }
+    return itemList;
+  }
+
+  @Override
+  public List<DailyBoxOfficeListDTO> getDailyBoxOfficeJson(String serviceUrl) throws Exception {
+    List<DailyBoxOfficeListDTO> itemList = null;
+
+    URL url = null;
+    HttpURLConnection urlConn = null;
+    BufferedReader reader = null;
+
+    try {
+      url = new URL(serviceUrl);
+      urlConn = (HttpURLConnection) url.openConnection();
+      urlConn.setRequestMethod("GET");
+
+      reader = new BufferedReader(new InputStreamReader(urlConn.getInputStream()));
+
+      StringBuilder sb = new StringBuilder();
+      String line;
+
+      while ((line = reader.readLine()) != null) {
+        sb.append(line);
+      }
+
+      Gson gson = new Gson();
+      BoxOfficeDTO boxOffice = gson.fromJson(sb.toString(), BoxOfficeDTO.class);
+      itemList = boxOffice.getBoxOfficeResult().getDailyBoxOfficeList();
+    }
+    catch (Exception e) {
+      e.printStackTrace();
+    }
+    finally {
+      if (reader != null) { reader.close(); }
+      if (urlConn != null) { urlConn.disconnect(); }
+    }
+
     return itemList;
   }
 }
