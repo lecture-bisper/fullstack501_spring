@@ -1,6 +1,7 @@
 package com.bitc.board1.service;
 
 import com.bitc.board1.dto.BoardDto;
+import com.bitc.board1.dto.BoardFileDto;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import java.util.List;
@@ -19,6 +20,8 @@ public interface BoardService {
   public void updateBoard(BoardDto board) throws Exception;
 
   public void deleteBoard(int boardIdx) throws Exception;
+
+  public BoardFileDto selectBoardFileInfo(int idx, int boardIdx) throws Exception;
 }
 
 

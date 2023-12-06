@@ -29,7 +29,12 @@ public interface BoardMapper {
 
   public void deleteBoard(@Param("boardIdx") int boardIdx) throws Exception;
 
+//  파일 정보를 데이터 베이스에 저장하는 메소드
   public void insertBoardFileList(List<BoardFileDto> fileList) throws Exception;
+
+  public List<BoardFileDto> selectBoardFileList(int boardIdx) throws Exception;
+
+  public BoardFileDto selectBoardFileInfo(@Param("idx") int idx, @Param("boardIdx") int boardIdx) throws Exception;
 }
 
 
