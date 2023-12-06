@@ -1,16 +1,22 @@
 package com.bitc.board1.controller;
 
 import com.bitc.board1.dto.BoardDto;
-import com.bitc.board1.mapper.BoardMapper;
+import com.bitc.board1.dto.BoardFileDto;
 import com.bitc.board1.service.BoardService;
+import jakarta.servlet.http.HttpServletResponse;
+import org.apache.commons.io.FileUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.util.ObjectUtils;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.io.File;
+import java.net.URLEncoder;
 import java.util.List;
 
 // @Controller : 해당 클래스가 Spring MVC 의 Controller 파일임을 스프링 프레임워크에 알려주는 어노테이션
@@ -61,10 +67,12 @@ public class BoardController {
 
 //  사용자가 입력한 데이터로 글쓰기 처리
 //  매개변수를 BoardDto 클래스 타입으로 지정했기 때문에 html의 input 태그 중 name 속성값을 BoardDto 클래스의 필드명과 동일하게 사용해야 함
+//  MultipartHttpServletRequest : 클라이언트에서 전달한 파일 정보를 받아오는 클래스
   @RequestMapping("/board/insertBoard.do")
   public String insertBoard(BoardDto board, MultipartHttpServletRequest multipart) throws Exception {
 //    서비스를 이용하여 데이터 베이스에 데이터 입력
 //    boardService.insertBoard(board);
+//    서비스를 이용하여 데이터 베이스에 데이터 및 파일 정보도 함께 저장
       boardService.insertBoard(board, multipart);
 //    지정한 주소로 리다이렉트
     return "redirect:/board/boardList.do";
@@ -100,6 +108,30 @@ public class BoardController {
 
     return "redirect:/board/boardList.do";
   }
+
+  @RequestMapping(value = "/board/downloadBoardFile.do", method = RequestMethod.GET)
+  public void downloadBoardFile(@RequestParam("idx") int idx, @RequestParam("boardIdx") int boardIdx, HttpServletResponse res) throws Exception {
+    BoardFileDto boardFile = boardService.selectBoardFileInfo(idx, boardIdx);
+
+    if (ObjectUtils.isEmpty(boardFile) == false) {
+      String fileName = boardFile.getOriginalFileName();
+      byte[] files = FileUtils.readFileToByteArray(new File(boardFile.getStoredFileName()));
+
+      res.setContentType("application/octet-stream");
+      res.setContentLength(files.length);
+      res.setHeader("Content-Disposition", "attachment; fileName=\"" + URLEncoder.encode(fileName, "UTF-8") + "\"");
+      res.getOutputStream().write(files);
+      res.getOutputStream().flush();
+      res.getOutputStream().close();
+    }
+
+  }
+
+  @GetMapping("/board/inside")
+  public String inside() throws Exception {
+    return "inside";
+  }
+
 }
 
 
